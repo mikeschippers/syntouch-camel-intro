@@ -4,8 +4,6 @@ import org.apache.camel.builder.RouteBuilder;
 import org.apache.camel.model.rest.RestBindingMode;
 import org.springframework.stereotype.Component;
 
-import javax.sql.DataSource;
-
 @Component
 public class Exercise3 extends RouteBuilder {
 
@@ -30,15 +28,15 @@ public class Exercise3 extends RouteBuilder {
                 .bindingMode(RestBindingMode.json)
                 .contextPath("/")
                 .apiContextPath("/api-doc")
-                    .apiProperty("api.title", "Jokes REST API")
-                    .apiProperty("api.version", "1.0")
-                    .apiProperty("cors", "true");
+                .apiProperty("api.title", "Jokes REST API")
+                .apiProperty("api.version", "1.0")
+                .apiProperty("cors", "true");
 
         rest()
                 .produces("application/json")
                 .consumes("application/json")
                 .get("/jokes")
-                    .to("direct:getJokes");
+                .to("direct:getJokes");
 
         from("direct:getJokes")
                 .routeId("getJokes")
