@@ -1,0 +1,17 @@
+###
+GET http://localhost:8080/api/jokes
+Accept: application/json
+
+###
+POST http://localhost:8080/api/jokes
+Content-Type: application/json
+{
+  "id": 999,
+  "value": "content"
+}
+
+###
+DELETE http://localhost:8080/api/jokes/10
+
+###
+
